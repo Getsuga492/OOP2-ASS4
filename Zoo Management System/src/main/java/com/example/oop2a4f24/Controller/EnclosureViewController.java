@@ -23,21 +23,31 @@ public class EnclosureViewController {
     private EnclosureViewController aEnclosureViewController;
 
     private Enclosure aEnclosure;
+    //create a method for no code dublicate, delete and comment out things that aren't mine
 
-
-    @FXML
-    protected void addButton(ActionEvent pEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+    private void openAnimal(String fxmlFile, ActionEvent pEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
         Parent view = fxmlLoader.load();
-        EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
-        newEnclosureViewController.setEnclosure(getSelectedEnclosure());
+        AnimalViewController newAnimalViewController = fxmlLoader.getController();
+        // newAnimalViewController.setAnimal(getSelectedAnimal());
+        // newAnimalViewController.setEnclosure(getSelectedEnclosure());
+
         Scene nextScene = new Scene(view, 500, 500);
         Stage nextStage = new Stage();
         nextStage.setScene(nextScene);
-        nextStage.setTitle(aEnclosureViewController.getName());
         nextStage.initModality(Modality.WINDOW_MODAL);
-        nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+
+        if (pEvent != null) {
+            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+        } else {
+            nextStage.initOwner(enclosureListView.getScene().getWindow());
+        }
+
         nextStage.showAndWait();
+    }
+    @FXML
+    protected void addButton(ActionEvent pEvent) throws IOException {
+        openAnimal("hello-view.fxml", pEvent);
     }
 
     private String getName() {
@@ -47,22 +57,26 @@ public class EnclosureViewController {
     private Enclosure getSelectedEnclosure() {
         return new Enclosure(); //TODO Find right enclosure from list
     }
+    public void setEnclosure(Enclosure pEnclosure) {
+
+    }
 
     @FXML
     protected void displayButton() {
         // Get the selected index from the ListView
         int selectedIndex = enclosureListView.getSelectionModel().getSelectedIndex();
 
-        // Check if an item is selected
         if (selectedIndex != -1) {
-            // display the animal view with the detailed
-
-
-
+            try {
+                openAnimal("hello-view.fxml", null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("No item selected to display.");
         }
     }
+
 
     @FXML
     protected void deleteButton() {
@@ -81,10 +95,9 @@ public class EnclosureViewController {
 
     @FXML
     protected void closeButton(ActionEvent event) {
+        //Close the window
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
-    public void setEnclosure(Enclosure pEnclosure) {
 
-    }
 }
