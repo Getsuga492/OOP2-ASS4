@@ -6,13 +6,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ListView layoutX="38.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-        <Button layoutX="307.0" layoutY="142.0" mnemonicParsing="false" text="Display" />
-        <Button layoutX="307.0" layoutY="206.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Exit" />
-        <Text layoutX="132.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Big Cats">
+        <Button layoutX="291.0" layoutY="155.0" mnemonicParsing="false" text="Display" />
+        <Button layoutX="291.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Exit" />
+        <Text layoutX="138.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Big Cats">
             <font>
                 <Font size="37.0" />
             </font>
