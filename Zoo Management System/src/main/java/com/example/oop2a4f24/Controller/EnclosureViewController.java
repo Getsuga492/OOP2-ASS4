@@ -47,7 +47,7 @@ public class EnclosureViewController {
     }
     @FXML
     protected void addButton(ActionEvent pEvent) throws IOException {
-        openAnimal("hello-view.fxml", pEvent);
+        openAnimal("AnimalView.fxml", pEvent);
     }
 
     private String getName() {
@@ -68,7 +68,7 @@ public class EnclosureViewController {
 
         if (selectedIndex != -1) {
             try {
-                openAnimal("hello-view.fxml", null);
+                openAnimal("AnimalView.fxml", null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
