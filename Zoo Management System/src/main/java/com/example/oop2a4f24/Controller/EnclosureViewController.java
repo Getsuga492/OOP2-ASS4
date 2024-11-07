@@ -1,7 +1,7 @@
 package com.example.oop2a4f24.Controller;
 
 import com.example.oop2a4f24.HelloApplication;
-//import com.example.oop2a4f24.Model.Enclosure;
+import com.example.oop2a4f24.Model.Enclosure;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,14 +22,14 @@ public class EnclosureViewController {
 
     private EnclosureViewController aEnclosureViewController;
 
-    //private Enclosure aEnclosure;
-    //create a method for no code dublicate, delete and comment out things that aren't mine
+    private Enclosure aEnclosure;
+
 
     private void openAnimal(String fxmlFile, ActionEvent pEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
         Parent view = fxmlLoader.load();
        // AnimalViewController newAnimalViewController = fxmlLoader.getController();
-        // newAnimalViewController.setAnimal(getSelectedAnimal());
+        //newAnimalViewController.setAnimal(getSelectedAnimal());
         // newAnimalViewController.setEnclosure(getSelectedEnclosure());
 
         Scene nextScene = new Scene(view, 500, 500);
@@ -50,16 +50,16 @@ public class EnclosureViewController {
         openAnimal("hello-view.fxml", pEvent);
     }
 
-    //private String getName() {
-        //return this.aEnclosure.getName();
-    //}
+    private String getName() {
+        return this.aEnclosure.getName();
+    }
 
-   // private Enclosure getSelectedEnclosure() {
-      //  return new Enclosure(); //TODO Find right enclosure from list
-  //  }
-   // public void setEnclosure(Enclosure pEnclosure) {
+    private Enclosure getSelectedEnclosure() {
+        return new Enclosure(); //TODO Find right enclosure from list
+   }
+   public void setEnclosure(Enclosure pEnclosure) {
 
-   // }
+    }
 
     @FXML
     protected void displayButton() {
