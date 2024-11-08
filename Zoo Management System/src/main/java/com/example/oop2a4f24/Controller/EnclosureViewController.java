@@ -23,13 +23,13 @@ public class EnclosureViewController {
     private EnclosureViewController aEnclosureViewController;
 
     private Enclosure aEnclosure;
-    //create a method for no code dublicate, delete and comment out things that aren't mine
+
 
     private void openAnimal(String fxmlFile, ActionEvent pEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
         Parent view = fxmlLoader.load();
-        AnimalViewController newAnimalViewController = fxmlLoader.getController();
-        // newAnimalViewController.setAnimal(getSelectedAnimal());
+       // AnimalViewController newAnimalViewController = fxmlLoader.getController();
+        //newAnimalViewController.setAnimal(getSelectedAnimal());
         // newAnimalViewController.setEnclosure(getSelectedEnclosure());
 
         Scene nextScene = new Scene(view, 500, 500);
@@ -47,7 +47,7 @@ public class EnclosureViewController {
     }
     @FXML
     protected void addButton(ActionEvent pEvent) throws IOException {
-        openAnimal("hello-view.fxml", pEvent);
+        openAnimal("AnimalView.fxml", pEvent);
     }
 
     private String getName() {
@@ -56,8 +56,8 @@ public class EnclosureViewController {
 
     private Enclosure getSelectedEnclosure() {
         return new Enclosure(); //TODO Find right enclosure from list
-    }
-    public void setEnclosure(Enclosure pEnclosure) {
+   }
+   public void setEnclosure(Enclosure pEnclosure) {
 
     }
 
@@ -68,7 +68,7 @@ public class EnclosureViewController {
 
         if (selectedIndex != -1) {
             try {
-                openAnimal("hello-view.fxml", null);
+                openAnimal("AnimalView.fxml", null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
