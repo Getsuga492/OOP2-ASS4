@@ -55,10 +55,10 @@ public class EnclosureViewController {
     }
 
     private Enclosure getSelectedEnclosure() {
-        return new Enclosure(); //TODO Find right enclosure from list
+        return new Enclosure(); //TODO Find right enclosure from list=  //  CompositeAnimalCollection selectedCollection = enclosureListView.getSelectionModel().getSelectedItem();
    }
    public void setEnclosure(Enclosure pEnclosure) {
-
+       this.aEnclosure = pEnclosure;
     }
 
     @FXML
