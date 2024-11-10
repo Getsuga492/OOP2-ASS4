@@ -1,10 +1,17 @@
 package com.example.oop2a4f24.Controller;
 
+import com.example.oop2a4f24.Model.Animal;
+import com.example.oop2a4f24.Model.Enclosure;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AnimalViewController {
 
@@ -21,16 +28,30 @@ public class AnimalViewController {
     private TextField weightTextField;
 
     @FXML
+    private TextField enclosureNameTextField;
+
+    @FXML
     private Button closeButton;
 
     @FXML
     private Button saveButton;
 
-    private CompositeAnimalCollection animalCollection;
+    private Enclosure enclosure;
 
     public void initialize() {
-        // Initialize the animal collection or retrieve it from a service
-        animalCollection = new CompositeAnimalCollection();
+
+    }
+
+    public void setEnclosure(Enclosure enclosure) {
+        this.enclosure = enclosure;
+        displayEnclosureInfo();
+    }
+
+    private void displayEnclosureInfo() {
+        if (enclosure != null) {
+            enclosureNameTextField.setText(enclosure.getName());
+
+        }
     }
 
     @FXML
@@ -40,8 +61,8 @@ public class AnimalViewController {
         int age = Integer.parseInt(ageTextField.getText());
         double weight = Double.parseDouble(weightTextField.getText());
 
-        com.example.oop2a4f24.Model.Animal newAnimal = new com.example.oop2a4f24.Model.Animal(name, sex, age, weight);
-        animalCollection.addAnimal(newAnimal);
+        Animal newAnimal = new Animal(name, sex, age, weight);
+        enclosure.addAnimal(newAnimal);
 
         // Navigate back to EnclosureView
         navigateToEnclosureView();
@@ -54,9 +75,24 @@ public class AnimalViewController {
     }
 
     private void navigateToEnclosureView() {
-        // Logic to navigate back to EnclosureView
+        // Close the current window
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
-        // You might want to open the EnclosureView here
+
+        // Open the EnclosureView
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EnclosureView.fxml"));
+            Parent root = loader.load();
+
+            EnclosureViewController enclosureController = loader.getController();
+
+            enclosureController.setEnclosure(this.enclosure);
+
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
