@@ -60,7 +60,7 @@ public class AnimalViewController {
         String sex = sexTextField.getText();
         int age = Integer.parseInt(ageTextField.getText());
         double weight = Double.parseDouble(weightTextField.getText());
-
+        //Method should be handled by the model class Enclosure
         Animal existingAnimal = enclosure.getAnimalByName(name);
         if (existingAnimal != null) {
             // Update existing animal
@@ -70,6 +70,7 @@ public class AnimalViewController {
         } else {
             // Create new animal
             Animal newAnimal = new Animal(name, sex, age, weight);
+            //Method should be handled by the model class Enclosure
             enclosure.addAnimal(newAnimal);
         }
 
