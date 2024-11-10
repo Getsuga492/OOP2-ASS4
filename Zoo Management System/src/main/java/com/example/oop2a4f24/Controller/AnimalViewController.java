@@ -61,8 +61,17 @@ public class AnimalViewController {
         int age = Integer.parseInt(ageTextField.getText());
         double weight = Double.parseDouble(weightTextField.getText());
 
-        Animal newAnimal = new Animal(name, sex, age, weight);
-        enclosure.addAnimal(newAnimal);
+        Animal existingAnimal = enclosure.getAnimalByName(name);
+        if (existingAnimal != null) {
+            // Update existing animal
+            existingAnimal.setSex(sex);
+            existingAnimal.setAge(age);
+            existingAnimal.setWeight(weight);
+        } else {
+            // Create new animal
+            Animal newAnimal = new Animal(name, sex, age, weight);
+            enclosure.addAnimal(newAnimal);
+        }
 
         // Navigate back to EnclosureView
         navigateToEnclosureView();
