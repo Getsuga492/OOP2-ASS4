@@ -12,9 +12,9 @@ public class ImportHelper {
         // Create the lions enclosure
         Enclosure lions = new Enclosure();
         lions.setName("Lions");
-        lions.addAnimal(new Lion("Simba", 3, 36, 5));
-        lions.addAnimal(new Lion("Mufasa", 8, 41, 3));
-        lions.addAnimal(new Lion("Nala", 3, 30, 3));
+        lions.addAnimal(new Lion("Simba", 3, 36));
+        lions.addAnimal(new Lion("Mufasa", 8, 41));
+        lions.addAnimal(new Lion("Nala", 3, 30));
 
         // Create the tiger habitat enclosure
         Enclosure tigerHabitat = new Enclosure();

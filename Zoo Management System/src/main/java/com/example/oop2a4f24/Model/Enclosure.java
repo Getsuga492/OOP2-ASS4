@@ -1,28 +1,59 @@
 package com.example.oop2a4f24.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Enclosure // implements AnimalCollection
- {
-   //  private List<Animal> animals;
-    private String aName;
+public class Enclosure implements AnimalCollection {
+    private String name;
+    private List<Animal> animals; // Holds animals within this enclosure
 
-    public void setName(String pName) {
-        aName = pName;
+    // Constructor
+    public Enclosure() {
+        this.animals = new ArrayList<>();
     }
 
-
+    // Getter and Setter for name
+    @Override
     public String getName() {
-        return aName;
+        return name;
     }
 
-    // public void addAnimal(Animal animal) {
-       //  animals.add(animal);
-    // }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   //  public void removeAnimal(Animal animal) {
-    //      animals.remove(animal);
-    //}
+    // Adds an animal to the enclosure
+    @Override
+    public void addAnimal(Animal animal) {
+        animals.add(animal);
+    }
 
+    // Removes an animal from the enclosure
+    @Override
+    public void removeAnimal(Animal animal) {
+        animals.remove(animal);
+    }
 
+    // Retrieves the list of animals in the enclosure
+    @Override
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    // Unsupported operations since Enclosure cannot hold other collections
+    @Override
+    public void addCollection(AnimalCollection collection) {
+        throw new UnsupportedOperationException("Cannot add collections to an enclosure.");
+    }
+
+    @Override
+    public void removeCollection(AnimalCollection collection) {
+        throw new UnsupportedOperationException("Cannot remove collections from an enclosure.");
+    }
+
+    @Override
+    public AnimalCollection findCollectionByName(String name) {
+        throw new UnsupportedOperationException("Cannot search collections within an enclosure.");
+    }
 }

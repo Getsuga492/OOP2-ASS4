@@ -1,6 +1,7 @@
 package com.example.oop2a4f24.Controller;
 
 import com.example.oop2a4f24.HelloApplication;
+import com.example.oop2a4f24.Model.Animal;
 import com.example.oop2a4f24.Model.Enclosure;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,16 +20,27 @@ public class EnclosureViewController {
 
     @FXML
     private ListView<String> enclosureListView;
+    @FXML
+    private Label nameLabel;
 
     private EnclosureViewController aEnclosureViewController;
 
     private Enclosure aEnclosure;
 
+    public void setEnclosure(Enclosure enclosure) {
+        this.aEnclosure = enclosure;
+        nameLabel.setText(enclosure.getName());
 
+        // Populate ListView with animal names from the enclosure
+        enclosureListView.getItems().clear();
+        for (Animal animal : enclosure.getAnimals()) {
+            enclosureListView.getItems().add(animal.getaName());
+        }
+    }
     private void openAnimal(String fxmlFile, ActionEvent pEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
         Parent view = fxmlLoader.load();
-       // AnimalViewController newAnimalViewController = fxmlLoader.getController();
+        // AnimalViewController newAnimalViewController = fxmlLoader.getController();
         //newAnimalViewController.setAnimal(getSelectedAnimal());
         // newAnimalViewController.setEnclosure(getSelectedEnclosure());
 
@@ -55,11 +67,9 @@ public class EnclosureViewController {
     }
 
     private Enclosure getSelectedEnclosure() {
-        return new Enclosure(); //TODO Find right enclosure from list=  //  CompositeAnimalCollection selectedCollection = enclosureListView.getSelectionModel().getSelectedItem();
-   }
-   public void setEnclosure(Enclosure pEnclosure) {
-       this.aEnclosure = pEnclosure;
+        return new Enclosure(); //TODO Find right enclosure from list
     }
+    // public void setEnclosure(Enclosure pEnclosure) {}
 
     @FXML
     protected void displayButton() {
