@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
 
@@ -40,8 +42,18 @@ public class CompositeAnimalCollectionViewController {
     @FXML
     protected void onDisplayButtonClick(ActionEvent pEvent) throws IOException {
         String selectedEnclosureName = enclosureListView.getSelectionModel().getSelectedItem();
+
+        // Check if no item is selected
         if (selectedEnclosureName == null) {
-            return; // No selection made
+            // Create an alert
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Enclosure Selected");
+            alert.setContentText("Please select an enclosure.");
+
+            // Show the alert
+            alert.showAndWait();
+            return; // Exit the method if no selection
         }
 
         // Find the selected collection based on the selected name

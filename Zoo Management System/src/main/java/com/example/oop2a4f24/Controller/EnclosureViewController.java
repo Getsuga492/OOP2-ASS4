@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
 
@@ -83,7 +85,13 @@ public class EnclosureViewController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("No item selected to display.");
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Animal Selected");
+            alert.setContentText("Please select an animal.");
+
+            // Show the alert
+            alert.showAndWait();
         }
     }
 
@@ -98,7 +106,13 @@ public class EnclosureViewController {
             // Remove the selected item from the ListView
             enclosureListView.getItems().remove(selectedIndex);
         } else {
-            System.out.println("No item selected to delete.");
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Animal Selected");
+            alert.setContentText("Please select an animal.");
+
+            // Show the alert
+            alert.showAndWait();
         }
     }
 
@@ -118,7 +132,6 @@ public class EnclosureViewController {
             // Now get the animal object from the enclosure using the name
             return aEnclosure.getAnimalByName(selectedAnimalName); // Ensure this method is available in Enclosure
         }
-        return null; // Return null if no animal is selected
+        return null;
     }
-
 }
