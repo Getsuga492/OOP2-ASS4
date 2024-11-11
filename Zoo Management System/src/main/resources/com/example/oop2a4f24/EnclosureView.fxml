@@ -4,14 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="enclosureView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop2a4f24.Controller.EnclosureViewController">
+<AnchorPane fx:id="enclosureView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop2a4f24.Controller.EnclosureViewController">
    <children>
-      <ListView fx:id="enclosureListView" layoutX="40.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="addButton" layoutX="269.0" layoutY="65.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
-      <Button fx:id="displayButton" layoutX="261.0" layoutY="119.0" mnemonicParsing="false" onAction="#displayButton" text="Display" />
-      <Button fx:id="deleteButton" layoutX="263.0" layoutY="182.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete" />
-      <Label fx:id="nameLabel" layoutX="160.0" layoutY="26.0" />
-      <Button fx:id="closeButton" layoutX="178.0" layoutY="263.0" mnemonicParsing="false" onAction="#closeButton" text="Close" />
+      <ListView fx:id="enclosureListView" layoutX="40.0" layoutY="111.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="addButton" layoutX="269.0" layoutY="119.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
+      <Button fx:id="displayButton" layoutX="261.0" layoutY="173.0" mnemonicParsing="false" onAction="#displayButton" text="Display" />
+      <Button fx:id="deleteButton" layoutX="263.0" layoutY="236.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete" />
+      <Label fx:id="nameLabel" layoutX="160.0" layoutY="26.0">
+         <font>
+            <Font size="37.0" />
+         </font></Label>
+      <Button fx:id="closeButton" layoutX="178.0" layoutY="317.0" mnemonicParsing="false" onAction="#closeButton" text="Close" />
    </children>
 </AnchorPane>

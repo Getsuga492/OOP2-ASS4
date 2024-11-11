@@ -55,7 +55,7 @@ public class CompositeAnimalCollectionViewController {
             newEnclosureViewController.setEnclosure((Enclosure) selectedCollection);
 
             // Create and show the new stage for Enclosure view
-            Scene nextScene = new Scene(view, 500, 500);
+            Scene nextScene = new Scene(view, 400, 400);
             Stage nextStage = new Stage();
             nextStage.setScene(nextScene);
             nextStage.setTitle(((Enclosure) selectedCollection).getName());

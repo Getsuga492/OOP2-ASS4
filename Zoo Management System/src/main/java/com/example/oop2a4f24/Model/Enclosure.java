@@ -56,4 +56,14 @@ public class Enclosure implements AnimalCollection {
     public AnimalCollection findCollectionByName(String name) {
         throw new UnsupportedOperationException("Cannot search collections within an enclosure.");
     }
+
+    // Method to find an animal by its name
+    public Animal getAnimalByName(String name) {
+        for (Animal animal : animals) {
+            if (animal.getaName().equalsIgnoreCase(name)) {
+                return animal;
+            }
+        }
+        return null; // Animal not found
+    }
 }

@@ -40,11 +40,11 @@ public class EnclosureViewController {
     private void openAnimal(String fxmlFile, ActionEvent pEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
         Parent view = fxmlLoader.load();
-        // AnimalViewController newAnimalViewController = fxmlLoader.getController();
-        //newAnimalViewController.setAnimal(getSelectedAnimal());
-        // newAnimalViewController.setEnclosure(getSelectedEnclosure());
+        AnimalViewController newAnimalViewController = fxmlLoader.getController();
+        newAnimalViewController.setAnimal(getSelectedAnimal());
+        newAnimalViewController.setEnclosure(getSelectedEnclosure());
 
-        Scene nextScene = new Scene(view, 500, 500);
+        Scene nextScene = new Scene(view, 400, 400);
         Stage nextStage = new Stage();
         nextStage.setScene(nextScene);
         nextStage.initModality(Modality.WINDOW_MODAL);
@@ -59,7 +59,7 @@ public class EnclosureViewController {
     }
     @FXML
     protected void addButton(ActionEvent pEvent) throws IOException {
-        openAnimal("AnimalView.fxml", pEvent);
+        openAnimal("/com/example/oop2a4f24/AnimalView.fxml", pEvent);
     }
 
     private String getName() {
@@ -78,7 +78,7 @@ public class EnclosureViewController {
 
         if (selectedIndex != -1) {
             try {
-                openAnimal("AnimalView.fxml", null);
+                openAnimal("/com/example/oop2a4f24/AnimalView.fxml", null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,6 +108,17 @@ public class EnclosureViewController {
         //Close the window
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    private Animal getSelectedAnimal() {
+        // Assume enclosureListView contains the names of the animals, and we match the selected name
+        int selectedIndex = enclosureListView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            String selectedAnimalName = enclosureListView.getItems().get(selectedIndex);
+            // Now get the animal object from the enclosure using the name
+            return aEnclosure.getAnimalByName(selectedAnimalName); // Ensure this method is available in Enclosure
+        }
+        return null; // Return null if no animal is selected
     }
 
 }

@@ -1,15 +1,23 @@
 package com.example.oop2a4f24.Model;
 
-public abstract class Animal {
-    private String aName;     // Name of the animal
+public class Animal {
+    private String aName;   // Name of the animal
+    private String aSex;
     private int aAge;         // Age of the animal
     private int aWeight;     // Weight of the animal (e.g., in kilograms)
 
     // Constructor
-    public Animal(String name, int age, int weight) {
-        this.aName = name;
-        this.aAge = age;
-        this.aWeight = weight;
+    public Animal(String pName, int pAge, int pWeight) {
+        this.aName = pName;
+        this.aAge = pAge;
+        this.aWeight = pWeight;
+    }
+
+    public Animal(String pName, String pSex, int pAge, int pWeight) {
+        this.aName = pName;
+        this.aSex = pSex;
+        this.aAge = pAge;
+        this.aWeight = pWeight;
     }
 
     // Getter and Setter for name
@@ -37,6 +45,14 @@ public abstract class Animal {
 
     public void setaWeight(int aWeight) {
         this.aWeight = aWeight;
+    }
+
+    public String getaSex() {
+        return aSex;
+    }
+
+    public void setaSex(String pSex) {
+        this.aName = pSex;
     }
 
     // Returns a string representation of the animal, useful for display purposes
