@@ -82,7 +82,7 @@ public class CompositeAnimalCollectionViewController {
             newController.setCompositeAnimalCollection((CompositeAnimalCollection) selectedCollection);
 
             // Create and show the new stage for the nested composite collection view
-            Scene nextScene = new Scene(view, 500, 500);
+            Scene nextScene = new Scene(view, 400, 400);
             Stage nextStage = new Stage();
             nextStage.setScene(nextScene);
             nextStage.setTitle(((CompositeAnimalCollection) selectedCollection).getName());
